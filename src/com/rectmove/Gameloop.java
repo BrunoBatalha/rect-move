@@ -152,7 +152,7 @@ public class Gameloop extends Canvas implements Runnable, KeyListener {
 	private void update() {
 		rect.update();
 	}
-
+ 
 	private void draw() {
 		BufferStrategy bs = this.getBufferStrategy();
 		if (bs == null) {
