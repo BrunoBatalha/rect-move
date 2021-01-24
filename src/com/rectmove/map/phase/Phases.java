@@ -43,6 +43,30 @@ public class Phases{
 			{w,o,w,w,w,w,w,o,w,w,w,w,w,w,w,o},
 			{w,w,w,w,o,o,w,w,w,w,w,w,w,w,w,o},
 			{o,w,w,w,w,o,o,w,w,w,w,w,w,w,w,w},
+		}),
+		PHASE_3(new int[][]{
+			{w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w},
+			{w,w,w,w,w,w,w,w,w,w,w,w,w,w,o,o},
+			{o,w,w,w,w,w,o,w,o,w,w,o,o,w,w,w},
+			{w,w,o,w,w,w,w,w,w,w,o,w,w,w,w,w},
+			{w,w,w,w,o,w,w,w,w,w,w,w,w,w,w,o},
+			{w,w,w,w,w,w,w,w,w,w,w,w,w,o,w,w},
+			{w,w,w,w,w,o,w,w,w,w,w,w,w,w,w,w},
+			{w,o,w,o,w,w,w,w,w,w,o,w,w,w,w,w},
+			{o,w,w,w,w,w,w,o,w,w,w,w,w,w,o,w},
+			{w,f,w,w,o,w,w,w,w,w,w,o,w,w,o,w},
+		}),
+		PHASE_4(new int[][]{
+			{w,w,o,o,w,w,w,o,w,w,w,w,w,w,w,w},
+			{o,w,o,w,w,w,o,w,w,w,w,w,o,w,o,w},
+			{f,w,w,w,w,w,w,w,w,w,w,w,o,w,w,w},
+			{w,w,w,w,o,w,w,w,o,o,w,w,w,w,o,w},
+			{w,o,w,o,w,o,w,w,w,w,w,w,w,w,w,o},
+			{w,w,w,w,w,w,w,w,w,w,w,w,w,o,w,w},
+			{w,o,w,w,w,o,w,o,w,w,w,w,w,o,w,w},
+			{w,w,w,o,w,w,w,w,w,w,o,w,w,w,w,w},
+			{o,w,w,w,w,w,w,w,w,w,w,w,w,w,o,w},
+			{w,w,w,w,o,w,w,w,o,w,w,w,w,w,o,w},
 		});
 		
 		private final int[][] phase;
@@ -57,7 +81,7 @@ public class Phases{
 	};
 	
 	public static enum MOVES_ENUM {
-		PHASE_1(15),PHASE_2(20);
+		PHASE_1(15),PHASE_2(20),PHASE_3(20),PHASE_4(20);
 		
 		private final int moves;
 		

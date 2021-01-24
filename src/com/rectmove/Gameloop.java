@@ -44,15 +44,15 @@ public class Gameloop extends Canvas implements Runnable, KeyListener {
 		this.menu = new Menu();
 		this.rect = new Rect(0, 0, 50, 50, 0, 0, Color.red, SPEED_DEFAULT, SPEED_DEFAULT);
 		this.map = new Map(this.getPreferredSize().width, this.getPreferredSize().height - 50, 0);
-		this.remainingMoves = this.map.getQntMoves();
-		Gameloop.timer = new Timer();
-
+		this.remainingMoves = this.map.getQntMoves();		
 	}
 
 	public static void initTimer() {
+		Gameloop.timer = new Timer();
 		Gameloop.timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
+				System.out.println("OOI");
 				Gameloop.seconds--;
 			}
 		}, 1000, 1000);
@@ -113,8 +113,9 @@ public class Gameloop extends Canvas implements Runnable, KeyListener {
 
 		if (Gameloop.gameState == GameStateEnum.MENU || 
 			Gameloop.gameState == GameStateEnum.WIN || 
-			Gameloop.gameState == GameStateEnum.LOSE)
+			Gameloop.gameState == GameStateEnum.LOSE) {
 			this.reset();
+		}
 
 		switch (Gameloop.gameState) {
 		case MENU: {
@@ -131,6 +132,7 @@ public class Gameloop extends Canvas implements Runnable, KeyListener {
 				this.map.nextPhase();
 				Gameloop.gameState = GameStateEnum.PLAYING;
 			} catch (Exception e) {
+				timer.cancel();
 				Gameloop.gameState = GameStateEnum.GAME_FINISHED;
 			}
 			break;
@@ -140,6 +142,7 @@ public class Gameloop extends Canvas implements Runnable, KeyListener {
 				this.map.previousPhase();
 				Gameloop.gameState = GameStateEnum.PLAYING;
 			} else {
+				timer.cancel();
 				Gameloop.gameState = GameStateEnum.MENU;
 			}
 			break;
